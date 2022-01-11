@@ -1,0 +1,203 @@
+Experiment1-> config = {
+    'seq_length' : 60,
+    'num_epochs' : 350,
+    'lr' : 0.001,
+    'input_size' : 180,
+    'hidden_size' : 360,
+    'num_layers' : 2,
+    'num_classes' :18, ## This is  output dimension
+    'train_shuffle': True,
+    'val_shuffle': True,
+    'batch_size' : 30,
+    'best_model_name' : 'lstm_tsp_validation_3.bin',
+    'bidirectional' : False,
+}
+SMAPE -> 5.930718673043822
+
+Experiment 2-> CosineAnnealingWarmupRestartLR
+config = {
+    'seq_length' : 60,
+    'num_epochs' : 200,
+    'lr' : 0.001,
+    'input_size' : 180,
+    'hidden_size' : 360,
+    'num_layers' : 2,
+    'num_classes' :18, ## This is  output dimension
+    'train_shuffle': True,
+    'val_shuffle': True,
+    'batch_size' : 30,
+    'best_model_name' : 'lstm_tsp_validation_cawrLrSch_1.bin',
+    'bidirectional' : False,
+}
+config_lr = { 'first_cycle_steps':50,
+              'cycle_mult':1.0,
+               'max_lr':0.1,
+              'min_lr':0.001,
+              'warmup_steps':5,
+              'gamma':1.0
+            }
+            
+
+SMAPE -> 15.5250418873171
+
+Experiment 3-> CosineAnnealingLR
+config = {
+    'seq_length' : 60,
+    'num_epochs' : 200,
+    'lr' : 0.001,
+    'input_size' : 180,
+    'hidden_size' : 360,
+    'num_layers' : 2,
+    'num_classes' :18, ## This is  output dimension
+    'train_shuffle': True,
+    'val_shuffle': True,
+    'batch_size' : 30,
+    'best_model_name' : 'lstm_tsp_validation_CALrSch_1.bin',
+    'bidirectional' : False,
+}
+config_lr = {'T_max':20,
+             'eta_min':0
+            }
+SMAPE -> 5.747794710389073
+
+
+Experiment 4 -> CosineAnnealingLR, MLP head
+config = {
+    'seq_length' : 60,
+    'num_epochs' : 200,
+    'lr' : 0.001,
+    'input_size' : 180,
+    'hidden_size' : 360,
+    'num_layers' : 2,
+    'num_classes' :18, ## This is  output dimension
+    'train_shuffle': True,
+    'val_shuffle': True,
+    'batch_size' : 30,
+    'best_model_name' : 'lstm_tsp_validation_CALrSch_mlp_head_1.bin',
+    'bidirectional' : False,
+}
+config_lr = {'T_max':20,
+             'eta_min':0
+            }
+SMAPE -> 5.676095768491826
+
+
+Experiment 5-> MLP head
+config = {
+    'seq_length' : 60,
+    'num_epochs' : 200,
+    'lr' : 0.001,
+    'input_size' : 180,
+    'hidden_size' : 360,
+    'num_layers' : 2,
+    'num_classes' :18, ## This is  output dimension
+    'train_shuffle': True,
+    'val_shuffle': True,
+    'batch_size' : 30,
+    'best_model_name' : 'lstm_tsp_validation_mlp_head_1.bin',
+    'bidirectional' : False,
+}
+
+SMAPE -> 6.627867783164577
+
+Experiment 6-> MLP head+DropOut
+config = {
+    'seq_length' : 60,
+    'num_epochs' : 200,
+    'lr' : 0.001,
+    'input_size' : 180,
+    'hidden_size' : 360,
+    'num_layers' : 2,
+    'num_classes' :18, ## This is  output dimension
+    'train_shuffle': True,
+    'val_shuffle': True,
+    'batch_size' : 30,
+    'best_model_name' : 'lstm_tsp_validation_mlp_head_drpOut_1.bin',
+    'bidirectional' : False,
+}
+
+SMAPE -> 5.670933056797344
+
+Experiment 7-> MLP head+DropOut + CosineAnnealingLR
+config = {
+    'seq_length' : 60,
+    'num_epochs' : 200,
+    'lr' : 0.001,
+    'input_size' : 180,
+    'hidden_size' : 360,
+    'num_layers' : 2,
+    'num_classes' :18, ## This is  output dimension
+    'train_shuffle': True,
+    'val_shuffle': True,
+    'batch_size' : 30,
+    'best_model_name' : 'lstm_tsp_validation_CaLR_mlp_head_drpOut_1.bin',
+    'bidirectional' : False,
+}
+config_lr = {'T_max':20,
+             'eta_min':0
+            }
+            
+SMAPE -> 5.687145755756093
+
+
+Experiment 8-> MLP head+DropOut+BN + CosineAnnealingLR
+config = {
+    'seq_length' : 60,
+    'num_epochs' : 200,
+    'lr' : 0.001,
+    'input_size' : 180,
+    'hidden_size' : 360,
+    'num_layers' : 2,
+    'num_classes' :18, ## This is  output dimension
+    'train_shuffle': True,
+    'val_shuffle': True,
+    'batch_size' : 30,
+    'best_model_name' : 'lstm_tsp_validation_CaLR_mlp_head_drpOut_bn_1.bin',
+    'bidirectional' : False,
+}
+config_lr = {'T_max':20,
+             'eta_min':0
+            }
+            
+SMAPE -> 6.3009423769858035
+
+
+Experiment 9-> MLP head+BN + CosineAnnealingLR
+config = {
+    'seq_length' : 60,
+    'num_epochs' : 200,
+    'lr' : 0.001,
+    'input_size' : 180,
+    'hidden_size' : 360,
+    'num_layers' : 2,
+    'num_classes' :18, ## This is  output dimension
+    'train_shuffle': True,
+    'val_shuffle': True,
+    'batch_size' : 30,
+    'best_model_name' : 'lstm_tsp_validation_CaLR_mlp_head_bn_1.bin',
+    'bidirectional' : False,
+}
+config_lr = {'T_max':20,
+             'eta_min':0
+            }
+            
+SMAPE -> 7.8990474093596195
+
+
+Experiment 10-> MLP head+BN
+config = {
+    'seq_length' : 60,
+    'num_epochs' : 200,
+    'lr' : 0.001,
+    'input_size' : 180,
+    'hidden_size' : 360,
+    'num_layers' : 2,
+    'num_classes' :18, ## This is  output dimension
+    'train_shuffle': True,
+    'val_shuffle': True,
+    'batch_size' : 30,
+    'best_model_name' : 'lstm_tsp_validation_mlp_head_bn_1.bin',
+    'bidirectional' : False,
+}
+            
+SMAPE -> 6.412608140237722
